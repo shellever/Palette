@@ -54,7 +54,7 @@ Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
 
 **3. Palette使用示例**
 
-这里使用异步方式来创建Palette调色板，在回调方法onGenerated(Palette)中可以得到Palette对象。Swatch小色块若使用XML方式定义则布局代码会很长，这里使用代码方式来创建布局样式。
+这里使用异步方式来创建Palette调色板，在回调方法`onGenerated(Palette)`中可以得到`Palette`对象。`Swatch`小色块若使用XML方式定义则布局代码会很长，这里使用代码方式来创建布局样式。
 
 ```
 private void setPaletteColor(TextView tv, int color) {
