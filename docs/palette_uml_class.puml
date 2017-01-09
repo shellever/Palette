@@ -1,0 +1,36 @@
+@startuml
+
+interface PaletteAsyncListener {
+    void onGenerated(Palette **palette**);
+}
+
+class Swatch<<static, final>> {
+    public int **getRgb**();
+    public float[] getHsl();
+    public int getPopulation();
+    public int getTitleTextColor();
+    public int getBodyTextColor();
+}
+
+class Palette<<final>> {
+    public static Builder **from**(Bitmap bitmap);
+    public Palette generate();
+    public AsyncTask<Bitmap, Void, Palette> **generate**(final PaletteAsyncListener listener);
+    public int getVibrantColor(@ColorInt final int defaultColor);
+    public int getLightVibrantColor(@ColorInt final int defaultColor);
+    public int getDarkVibrantColor(@ColorInt final int defaultColor);
+    public int getMutedColor(@ColorInt final int defaultColor);
+    public int getLightMutedColor(@ColorInt final int defaultColor);
+    public int getDarkMutedColor(@ColorInt final int defaultColor);
+    public List<Swatch> getSwatches();
+    public Swatch getVibrantSwatch();
+    public Swatch getLightVibrantSwatch();
+    public Swatch getDarkVibrantSwatch();
+    public Swatch getMutedSwatch();
+    public Swatch getLightMutedSwatch();
+    public Swatch getDarkMutedSwatch();
+}
+PaletteAsyncListener <-- Palette : nestify
+Swatch <-- Palette : nestify
+
+@enduml
